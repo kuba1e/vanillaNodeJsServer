@@ -4,16 +4,7 @@ const generateId = (todos) => {
   } else {
     return (
       [...todos]
-        .sort((prevTodo, nextTodo) => {
-          const substractionResult = +prevTodo.id - +nextTodo.id
-          if (substractionResult < 0) {
-            return -1
-          } else if (substractionResult > 0) {
-            return 1
-          } else {
-            return 0
-          }
-        })
+        .sort((prevTodo, nextTodo) => +prevTodo.id - +nextTodo.id)
         .at(-1).id + 1
     )
   }
